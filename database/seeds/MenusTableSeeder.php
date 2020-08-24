@@ -130,6 +130,8 @@ class MenusTableSeeder extends Seeder
         DB::table('menulist')->insert([
             'name' => 'sidebar menu'
         ]);
+        
+        $this->joinAllByTransaction();
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
         $this->insertLink('guest,user,admin', 'Dashboard', '/', 'cil-speedometer');
         $this->beginDropdown('admin', 'Settings', 'cil-calculator');
